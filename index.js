@@ -1,4 +1,5 @@
 const { createCharacter, validateName  } = require("./classes/characters");
+const { generateGrid, movePlayer } = require("./classes/deplacement")
 const readline = require("readline");
 
 const rl = readline.createInterface({
@@ -31,4 +32,21 @@ async function startGame() {
   }
 }
 
+
+const grid = generateGrid(5, 5);
+
+let playerX = 2;
+let playerY = 2;
+
+try {
+  const { x: newX, y: newY } = movePlayer(playerX, playerY, 'north', 5, 5);
+  playerX = newX;
+  playerY = newY;
+  console.log(`Nouvelles coordonnées du joueur : (${playerX}, ${playerY})`);
+} catch (err) {
+  console.error(err.message);
+}
+
 startGame();
+
+
