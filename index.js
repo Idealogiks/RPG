@@ -1,5 +1,5 @@
-const { createCharacter, validateName  } = require("./classes/characters");
-const { generateGrid, movePlayer } = require("./classes/deplacement")
+const { createCharacter, validateName  } = require("./class/characters");
+const { generateGrid, movePlayer } = require("./class/deplacement")
 const readline = require("readline");
 
 const rl = readline.createInterface({
