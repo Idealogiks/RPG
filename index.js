@@ -18,7 +18,7 @@ async function startGame() {
   try {
     const name = await askQuestion("Entrez le nom de votre personnage (3-20 lettres) : ");
     validateName(name);
-    const characterClass = await askQuestion("Choisissez une classe (Warrior/Mage/Thief) : ");
+    const characterClass = await askQuestion("Choisissez une classe (Guerrier/Mage/Voleur) : ");
     const hero = createCharacter(name, characterClass);
     console.log("\nPersonnage créé avec succès !\n");
     console.log(hero.getSummary());

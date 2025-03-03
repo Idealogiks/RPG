@@ -22,7 +22,7 @@ class Character {
 
 // Stats de bases des classes
 const BASE_STATS = {
-    warrior: {
+    guerrier: {
         health: 150, mana: 50, strength: 15, intelligence: 5,
         defense: 12, magicResistance: 6, agility: 8, luck: 5,
         endurance: 10, spirit: 4
@@ -32,7 +32,7 @@ const BASE_STATS = {
         defense: 5, magicResistance: 12, agility: 7, luck: 6,
         endurance: 5, spirit: 10
     },
-    thief: {
+    voleur: {
         health: 110, mana: 70, strength: 10, intelligence: 7,
         defense: 8, magicResistance: 7, agility: 15, luck: 12,
         endurance: 7, spirit: 6
@@ -55,7 +55,7 @@ function createCharacter(name, characterClass) {
 
     characterClass = characterClass.toLowerCase();
     if (!BASE_STATS[characterClass]) {
-        throw new Error(`Classe inconnue : ${characterClass}. Choisissez parmi: Warrior, Mage, Thief.`);
+        throw new Error(`Classe inconnue : ${characterClass}. Choisissez parmi: Guerrier, Mage, Voleur.`);
     }
 
     return new Character(name, characterClass, { ...BASE_STATS[characterClass] });
