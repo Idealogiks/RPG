@@ -1,5 +1,6 @@
 {
   "dependencies": {
-    "node": "^23.9.0"
+    "node": "^23.9.0",
+    "prettier": "^3.5.3"
   }
 }
