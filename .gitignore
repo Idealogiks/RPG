@@ -1,0 +1,28 @@
+# Les répertoires et fichiers de dépendances
+node_modules/
+npm-debug.log
+yarn-error.log
+pnpm-debug.log
+
+# Fichiers de logs
+logs
+*.log
+
+# Répertoire de build/compilation
+dist/
+build/
+
+# Fichiers de test coverage
+coverage/
+
+# Fichiers de configuration d’éditeur
+.vscode/
+.idea/
+
+# Fichiers système (macOS, Windows, etc.)
+.DS_Store
+Thumbs.db
+
+# Variables d'environnement
+.env
+.env.*
