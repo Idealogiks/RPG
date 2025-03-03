@@ -1,3 +1,6 @@
+const { Guerrier, Mage, Voleur } = require('./characterClass.js');
+
+
 class Character {
     constructor(name, characterClass, stats) {
         this.name = name;
@@ -22,26 +25,28 @@ class Character {
 function validateName(name) {
     if (typeof name !== 'string' || name.length < 3 || name.length > 20) {
         throw new Error('Le nom doit comporter entre 3 et 20 caractères.');
-    }
-
-    if (!/^[A-Za-z]+$/.test(name)) {
-        throw new Error('Le nom ne doit contenir que des lettres.');
     } 
 }
 
-function createCharacter(name, characterClass) {
-    validateName(name); 
+function createCharacter(name, className) {
+    validateName(name);
 
-    characterClass = characterClass.toLowerCase();
-    if (!BASE_STATS[characterClass]) {
-        throw new Error(`Classe inconnue : ${characterClass}. Choisissez parmi: Guerrier, Mage, Voleur.`);
+    switch (lowerClass) {
+      case 'guerrier':
+        return new Guerrier(name);
+      case 'mage':
+        return new Mage(name);
+      case 'voleur':
+        return new Voleur(name);
+      default:
+        throw new Error(
+          `Classe inconnue : ${className}. Choisissez parmi: Guerrier, Mage, Voleur.`
+        );
     }
-
-    return new Character(name, characterClass, { ...BASE_STATS[characterClass] });
-}
+  }
+  
 
 module.exports = {
     Character,
-    createCharacter, 
-    validateName
+    createCharacter
 };
