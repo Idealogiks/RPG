@@ -1,6 +1,6 @@
 const { askQuestion } = require('./fonction/askQuestion');
 const { createCharacter } = require('./fonction/createCharacter');
-const { validateName } = require('./class/characters');
+const { validateName } = require('./fonction/validateName');
 
 const readline = require('readline');
 const rl = readline.createInterface({
