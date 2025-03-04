@@ -1,4 +1,3 @@
-// Génération grille
 class Deplacement {
     constructor(X, Y, content) {
         this.X = X; 
@@ -7,35 +6,21 @@ class Deplacement {
     }
 }
 
-function generateGrid(width, height) {
-    const grid = [];
-    
-    for (let y = 0; y < height; y++) {
-      const row = [];
-      for (let x = 0; x < width; x++) {
-        row.push(new Deplacement(x, y, []));
-      }
-      grid.push(row);
-    }
-  
-    return grid;
-  }
-
 function movePlayer(currentX, currentY, direction, gridWidth, gridHeight) {
     let newX = currentX;
     let newY = currentY;
   
     switch (direction.toLowerCase()) {
-      case 'north':
+      case 'N':
         newY -= 1;
         break;
-      case 'south':
+      case 'S':
         newY += 1;
         break;
-      case 'east':
+      case 'E':
         newX += 1;
         break;
-      case 'west':
+      case 'O':
         newX -= 1;
         break;
       default:

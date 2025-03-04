@@ -1,4 +1,4 @@
-const { Character } = require('./characters');
+const { Character } = require('./character');
 
 class Guerrier extends Character {
   constructor(name) {

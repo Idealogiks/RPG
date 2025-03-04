@@ -1,5 +1,5 @@
-const { validateName } = require('../class/characters');
-const { Guerrier, Mage, Voleur } = require('../class/characterClass');
+const { validateName } = require('./validateName');
+const { Guerrier, Mage, Voleur } = require('../../class/characterClass');
 
 function createCharacter(name, className) {
   validateName(name);
