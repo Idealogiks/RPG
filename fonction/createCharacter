@@ -1,0 +1,22 @@
+const { validateName } = require('../class/characters');
+const { Guerrier, Mage, Voleur } = require('../class/characterClass');
+
+function createCharacter(name, className) {
+  validateName(name);
+
+  const lowerClass = className.toLowerCase();
+  switch (lowerClass) {
+    case 'guerrier':
+      return new Guerrier(name);
+    case 'mage':
+      return new Mage(name);
+    case 'voleur':
+      return new Voleur(name);
+    default:
+      throw new Error(
+        `Classe inconnue.`
+      );
+  }
+}
+
+module.exports = { createCharacter };

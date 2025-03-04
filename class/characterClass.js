@@ -1,10 +1,8 @@
-const Personnage = require('./characters.js');
+const { Character } = require('./characters');
 
-class Guerrier extends Personnage {
+class Guerrier extends Character {
   constructor(name) {
-    super(name);
-    this.characterClass = 'Guerrier';
-    this.stats = {
+    super(name, 'Guerrier', {
       health: 150,
       mana: 50,
       strength: 15,
@@ -15,15 +13,13 @@ class Guerrier extends Personnage {
       luck: 5,
       endurance: 10,
       spirit: 4,
-    };
+    });
   }
 }
 
-class Mage extends Personnage {
+class Mage extends Character {
   constructor(name) {
-    super(name);
-    this.characterClass = 'Mage';
-    this.stats = {
+    super(name, 'Mage', {
       health: 90,
       mana: 150,
       strength: 4,
@@ -34,15 +30,13 @@ class Mage extends Personnage {
       luck: 6,
       endurance: 5,
       spirit: 10,
-    };
+    });
   }
 }
 
-class Voleur extends Personnage {
+class Voleur extends Character {
   constructor(name) {
-    super(name);
-    this.characterClass = 'Voleur';
-    this.stats = {
+    super(name, 'Voleur', {
       health: 110,
       mana: 70,
       strength: 10,
@@ -53,12 +47,8 @@ class Voleur extends Personnage {
       luck: 12,
       endurance: 7,
       spirit: 6,
-    };
+    });
   }
 }
 
-module.exports = {
-  Guerrier,
-  Mage,
-  Voleur,
-};
+module.exports = { Guerrier, Mage, Voleur };

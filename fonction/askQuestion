@@ -1,0 +1,12 @@
+function askQuestion(rl, questionText) {
+    return new Promise((resolve) => {
+      rl.question(questionText, (userInput) => {
+        resolve(userInput);
+      });
+    });
+  }
+  
+  module.exports = {
+    askQuestion
+  };
+  
