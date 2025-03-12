@@ -1,7 +1,9 @@
 const { startNewGame } = require('./fonction/start/startNewGame');
+const { DepGame } = require('./fonction/deplacement/Depgame');
 
-function Game() {
-    startNewGame();
+async function main() {
+    await startNewGame();
+    await DepGame();
 }
 
-Game();
+main();

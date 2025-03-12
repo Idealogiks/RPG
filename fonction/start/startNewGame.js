@@ -9,6 +9,7 @@ const rl = readline.createInterface({
 });
 
 async function startNewGame() {
+  console.log("Démarrage d’une nouvelle partie !");
   try {
     const name = await askQuestion(rl, "Entrez le nom de votre personnage (3-20 lettres) : ");
     validateName(name); 

@@ -1,13 +1,19 @@
+const { Deplacement } = require('../../class/deplacement');
+
 function generateGrid(width, height) {
-    const grid = [];
+  const grid = [];
     
-    for (let y = 0; y < height; y++) {
-      const row = [];
-      for (let x = 0; x < width; x++) {
-        row.push(new Deplacement(x, y, []));
-      }
-      grid.push(row);
+  for (let y = 0; y < height; y++) {
+    const row = [];
+    for (let x = 0; x < width; x++) {
+      row.push(new Deplacement(x, y, []));
     }
-  
-    return grid;
+    grid.push(row);
   }
+
+  return grid;
+}
+
+module.exports = {
+  generateGrid,
+};
