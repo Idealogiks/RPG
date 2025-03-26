@@ -1,22 +1,52 @@
-const { validateName } = require('./validateName');
-const { Guerrier, Mage, Voleur } = require('../../class/characterClass');
+const fs = require('fs');
+const path = require('path');
+
+function validateName(name) {
+  if (typeof name !== 'string') {
+    throw new Error("Le nom doit être une chaîne de caractères.");
+  }
+  if (name.length < 3 || name.length > 20) {
+    throw new Error("Le nom doit faire entre 3 et 20 caractères.");
+  }
+  if (!/^[A-Za-z]+$/.test(name)) {
+    throw new Error("Le nom doit être composé seulement de lettres.");
+  }
+}
+
+const classesDir = path.join(__dirname, '../../class');
+
+const characterClasses = {};
+
+const files = fs.readdirSync(classesDir).filter(file => file.endsWith('.js'));
+
+for (const file of files) {
+  const fullPath = path.join(classesDir, file);
+  const moduleExports = require(fullPath);
+  
+  for (const key of Object.keys(moduleExports)) {
+    const ClassRef = moduleExports[key];
+    const lowerName = key.toLowerCase();
+    characterClasses[lowerName] = ClassRef;
+  }
+}
 
 function createCharacter(name, className) {
   validateName(name);
 
   const lowerClass = className.toLowerCase();
-  switch (lowerClass) {
-    case 'guerrier':
-      return new Guerrier(name);
-    case 'mage':
-      return new Mage(name);
-    case 'voleur':
-      return new Voleur(name);
-    default:
-      throw new Error(
-        `Classe inconnue.`
-      );
+  const CharacterClass = characterClasses[lowerClass];
+
+  if (!CharacterClass) {
+    throw new Error(`Classe inconnue : ${className}`);
   }
+
+  return new CharacterClass(name);
 }
 
-module.exports = { createCharacter };
+module.exports = {
+  createCharacter,
+};
+
+console.log("__dirname =", __dirname);
+console.log("Target path =", path.join(__dirname, '../../class'));
+
