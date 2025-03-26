@@ -1,17 +1,7 @@
 const fs = require('fs');
 const path = require('path');
+const { validateName } = require('./ValidateName');
 
-function validateName(name) {
-  if (typeof name !== 'string') {
-    throw new Error("Le nom doit être une chaîne de caractères.");
-  }
-  if (name.length < 3 || name.length > 20) {
-    throw new Error("Le nom doit faire entre 3 et 20 caractères.");
-  }
-  if (!/^[A-Za-z]+$/.test(name)) {
-    throw new Error("Le nom doit être composé seulement de lettres.");
-  }
-}
 
 const classesDir = path.join(__dirname, '../../class');
 
@@ -46,7 +36,3 @@ function createCharacter(name, className) {
 module.exports = {
   createCharacter,
 };
-
-console.log("__dirname =", __dirname);
-console.log("Target path =", path.join(__dirname, '../../class'));
-
